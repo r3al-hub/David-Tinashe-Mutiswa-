@@ -1,39 +1,53 @@
-# David Tinashe Mutiswa — Portfolio Website (2026 refresh)
+# David Tinashe Mutiswa — Premium Responsive Portfolio
 
-A complete, responsive static website refreshed against the supplied 2026 CV, using the existing website's HTML/CSS/JavaScript architecture. No build tooling or paid animation library is required.
+**17 October 2026 · Responsive / dual-theme update**
 
-## Files
+This package improves the existing static HTML/CSS/JavaScript website while preserving its distinctive navy-and-lime brand identity, CV-aligned content, contact form and LinkedIn updates. It requires no build step or JavaScript framework.
 
-- `index.html` — homepage, career timeline, searchable/filterable project portfolio, expertise, credentials and contact form.
-- `style.css` — responsive visual system, motion, layout, mobile navigation and legal-page styling.
-- `script.js` — reveal/counter animation, active navigation, project filters, search, scroll progress and contact-form feedback.
-- `dtm.jpg` — supplied portrait.
-- `cv.pdf` — supplied CV, linked by the download buttons.
-- `privacy.html` and `terms.html` — reformatted pages retaining the original policy wording and original last-updated date.
-- `favicon.svg` — branded vector icon.
+## What's new
 
-## How to preview
+- **Dark and light themes:** Accessible sun/moon toggle in the top navigation on the homepage, privacy page and terms page. Defaults to the signature dark-and-lime theme; the visitor's choice is remembered using the browser's `localStorage` (key: `dtm-theme`). The toggle works with keyboard input and announces its next action to screen readers.
+- **Unobstructed portrait:** The original supplied `dtm.jpg` is displayed using its native aspect ratio and `object-fit: contain`. No floating information cards, gradients, labels or photographic filters cover the image. Both professional highlight cards and the portrait caption are positioned *below* the picture in the layout at every screen size.
+- **Responsive refinements:** Improved mobile hero spacing, typography, navigation and action buttons. Tested at 320px, 390px, 768px and 1440px without horizontal overflow in simulated Chromium renders.
+- **Unified visual system:** Colours for navigation, statistics, portfolio cards, timelines, credentials, contact form, footer and legal pages adapt to the chosen mode.
+- **Previous features preserved:** Searchable portfolio, project filters, career timeline, scroll reveals, count-up statistics, mobile menu, reading progress, accessible focus states, CV download and Formspree contact form.
+- **LinkedIn:** `https://www.linkedin.com/in/tinashe-shenjere-8211621a4/` remains on the homepage and both legal page footers.
 
-Open `index.html` in a modern browser. For a local web server, from inside the folder run:
+## Included files
+
+| File | Purpose |
+| --- | --- |
+| `index.html` | Portfolio homepage, unobstructed portrait, toggle and CV content |
+| `style.css` | Existing visual system plus premium dark/light and responsive refinements |
+| `script.js` | Existing website interactions plus saved theme switcher |
+| `dtm.jpg` | Original supplied photograph, not edited |
+| `cv.pdf` | Original CV, downloadable from the website |
+| `privacy.html` | Privacy policy with integrated header/toggle |
+| `terms.html` | Terms of Service with integrated header/toggle |
+| `favicon.svg` | DTM site icon |
+
+## Preview locally
+
+Open `index.html` in your browser. Or, if Python is installed, run this command **inside the website folder**:
 
 ```bash
 python -m http.server 8000
 ```
 
-Then open `http://localhost:8000` in a browser.
+Then visit `http://localhost:8000` in a browser.
 
-## How to publish
+## Publish to your existing GitHub Pages site
 
-Upload **all eight files to the same directory** on your static host (for instance, a GitHub Pages repository root). The site uses relative paths, so it works both at the domain root and under a project subdirectory. Leave filenames unchanged unless you also update links.
+1. Unzip this package.
+2. Open the folder `DTM_Portfolio_Premium_Responsive_2026`.
+3. Upload **all eight files from inside that folder**, not the containing folder, to the root of your current GitHub Pages repository. Replace the matching existing files.
+4. Commit the changes and allow GitHub Pages to redeploy.
+5. Refresh with the browser's cache bypass if the old stylesheet is still visible, then check phone, tablet and desktop layouts.
 
-## Important checks before going live
+## Important checks
 
-1. The contact form retains the existing Formspree action (`https://formspree.io/f/xblyvojy`). Confirm this form belongs to you, is active, and is accepting submissions; send a test message after publishing. No form submissions were sent during development.
-2. Review the privacy and terms wording for legal accuracy and ensure the privacy policy accurately describes Formspree and any analytics or hosting services you use. Their existing **8 July 2025** revision date was retained, not altered to imply legal review.
-3. Review CV, client/project naming, status descriptions and contact details before publishing. Content reflects the supplied CV; project details are intentionally limited to statements the document supports.
-4. If you have a live website URL, you can add the correct canonical and `og:url` metadata after publishing. Old example placeholders were removed.
-5. The site uses Google Fonts; it falls back to system fonts if they are unavailable. All other design and animation code is bundled locally.
-
-## Accessibility and performance
-
-Keyboard-operated filters and navigation, visible focus indicators, skip link, reduced-motion support, semantic headings, form feedback, responsive layouts and no large front-end framework.
+- **Formspree:** The existing contact form action (`https://formspree.io/f/xblyvojy`) has been preserved. Please verify this is your active form and submit a test message on the *live* site; no test submissions were sent during this update.
+- **Legal wording:** Existing Privacy Policy and Terms text and their original last-updated dates were retained. Review these pages if your data-handling practices have changed.
+- **CV and portfolio:** Professional content has not been expanded beyond your previous CV-aligned site; review client/project details before publishing.
+- **External font service:** Google Fonts loads over the network; if unavailable, the site uses system fallbacks.
+- **Live deployment:** These are deliverable local files, not a publication to your GitHub account. The live website remains unchanged until you upload/commit the files.
