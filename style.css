@@ -327,4 +327,4 @@ html[data-theme="light"] .form-feedback { color: #1d5138; }
 }
 @media (prefers-reduced-motion: reduce) {
   body, .theme-toggle, .portrait-note { transition: none !important; }
-}
+   }
