@@ -188,3 +188,28 @@
     });
   }
 })();
+
+
+/** Persistent, accessible colour-mode control on every page. */
+(() => {
+  const root = document.documentElement;
+  const themeButton = document.querySelector('.theme-toggle');
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  if (!themeButton) return;
+  const applyTheme = (theme) => {
+    const isDark = theme !== 'light';
+    root.dataset.theme = isDark ? 'dark' : 'light';
+    const action = isDark ? 'Switch to light theme' : 'Switch to dark theme';
+    themeButton.setAttribute('aria-label', action);
+    themeButton.setAttribute('title', action);
+    const label = themeButton.querySelector('.theme-toggle-text');
+    if (label) label.textContent = isDark ? 'Light mode' : 'Dark mode';
+    if (themeMeta) themeMeta.setAttribute('content', isDark ? '#081620' : '#f5f7f1');
+  };
+  applyTheme(root.dataset.theme);
+  themeButton.addEventListener('click', () => {
+    const newTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(newTheme);
+    try { localStorage.setItem('dtm-theme', newTheme); } catch (error) { /* Private browsing can block storage. */ }
+  });
+})();
